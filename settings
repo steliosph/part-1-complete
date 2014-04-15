@@ -1,0 +1,2 @@
+max_amount_of_workers=5
+keep_alive_worker_time=10
