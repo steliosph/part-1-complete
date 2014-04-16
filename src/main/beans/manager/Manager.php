@@ -47,6 +47,7 @@ class Manager {
     private function checkIfProccessIsRunning() {
         foreach ($this->_workerList as $workerInstance) {
             if (!file_exists("/proc/".$workerInstance->getPid())) {
+                Logger::logToWorker(date('l jS \of F Y h:i:s A') . " - Worker [pid:".$workerInstance->getPid()."][worker:" . $workerInstance->getInstanceCount() . "] has stopped - restarting worker \n");
                 $this->removePidFromActiveList($workerInstance);
                 $this->spawnNewWorker();
             }
