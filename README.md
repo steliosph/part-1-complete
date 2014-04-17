@@ -33,12 +33,14 @@ sudo chmod +x /etc/init.d/jobqueue
 php -m | grep pcntl
 ```
 This should return : pcntl
-
-If that is not return, youll need to edit 
+You should edit your cli php.ini file
 ```
 sudo vi /etc/php5/cli/php.ini
 ```
-and find the disable_functions=
+and find the 
+```
+disable_functions=
+```
 remove everything after the = to enable pcntl and restart apache
 ```
 sudo service apache2 restart
